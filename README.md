@@ -1,30 +1,66 @@
-# Implémentation de l'algorithme DES (Data Encryption Standard)
+# Bibliothèque d'algorithmes cryptographiques
 
-## Description
-Ce projet est une implémentation en Python de l'algorithme de chiffrement DES (Data Encryption Standard). DES est un algorithme de chiffrement symétrique qui opère sur des blocs de 64 bits, utilisant une clé de 56 bits effectifs. Il est l'ancêtre de l'algorithme AES (Advanced Encryption Standard).
+Cette bibliothèque contient différentes implémentations d'algorithmes cryptographiques classiques et modernes (en Python).
 
-## Fonctionnalités
-- Chiffrement de messages en utilisant l'algorithme DES
-- Conversion de chaînes de caractères en binaire
-- Génération de 16 sous-clés pour le processus de chiffrement
-- Implémentation complète des S-boxes et des tables de permutation
-- Sortie du message chiffré en format hexadécimal
+## Contenu
 
-## Utilisation
-1. Exécuter le script
-2. Entrer le message à chiffrer
-3. Entrer la clé de déchiffrement
-4. Le programme affichera le message chiffré en hexadécimal
+### Chiffrement DES (Data Encryption Standard)
+- Fichier : `Chiffrement DES.py`
+- Implémentation complète de l'algorithme DES incluant :
+    - Traitement du message et de la clé
+    - Génération des 16 sous-clés
+    - Permutations initiales et finales
+    - Fonction de Feistel
+    - S-boxes pour la substitution
+- Le message chiffré est retourné en format hexadécimal
 
-Exemple :
+### Chiffrement de Vigenère
+- Fichiers : `vigenere_chiffrement.py` et `vigenere_crack.py`
+- Fonctionnalités :
+    - Chiffrement classique avec génération de clé
+    - Outil de cryptanalyse complet permettant de :
+        - Analyser les fréquences
+        - Détecter la longueur de la clé par analyse des coïncidences
+        - Casser le chiffrement automatique
+    - Inclut un fichier de test : `texte_vigenere.txt`
+
+### RSA (Rivest-Shamir-Adleman)
+- Fichier : `rsa.py`
+- Caractéristiques :
+    - Génération de nombres premiers avec test de Miller-Rabin
+    - Calcul des clés publiques et privées
+    - Chiffrement et déchiffrement
+    - Utilisation de grands nombres (1024 bits) pour la sécurité
+
+### Chiffrement de Vernam (One-Time Pad)
+- Fichier : `vernam_chiffrement.py`
+- Fonctionnalités :
+    - Génération de clés aléatoires
+    - Chiffrement par addition modulaire
+    - Implémentation avec l'alphabet latin majuscule
+
+## Exemples d'utilisation
+
+### DES
 ```python
 Message : MonMessage
-Clé : MaCle123
+Clé : MaCle
 ```
 
-## Détails techniques
-- Le message est traité par blocs de 64 bits
-- La clé est réduite à 56 bits effectifs
-- 16 sous-clés sont générées pour les rounds de chiffrement
-- Utilisation de 8 S-boxes pour la substitution non-linéaire
-- Plusieurs étapes de permutation pour assurer la diffusion
+### Vigenère
+```python
+Message à chiffrer : MONMESSAGE
+Clé : CLE
+```
+
+### RSA
+```python
+Message à chiffrer : 42
+# Génère automatiquement les nombres premiers et la clé
+```
+
+### Vernam
+```python
+Texte à chiffrer : MONMESSAGE
+# Génère automatiquement une clé de même longueur
+```
